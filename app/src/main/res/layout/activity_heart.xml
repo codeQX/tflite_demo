@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <Spinner
+        android:id="@+id/selectClassSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:tooltipText="选择分类"
+        android:spinnerMode="dialog" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/selectModelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="viewClick"
+            android:text="选择模型"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/selectModelTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="模型文件路径"
+            android:gravity="top"
+            android:onClick="viewClick"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:paddingBottom="10dp"
+            android:text=""
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/selectDataButton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:onClick="viewClick"
+            android:text="选择数据"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/selectDataTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="数据文件路径"
+            android:gravity="top"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:onClick="viewClick"
+            android:paddingBottom="10dp"
+            android:text=""
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/contentEditTextBatchSize"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="BatchSize"
+        android:inputType="number"
+        android:text=""
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/contentEditTextBatchDataNumber"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="BatchDataNumber"
+        android:inputType="number"
+        android:text=""
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/loadInitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:onClick="viewClick"
+        android:text="加载模型初始化"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/cameraButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:onClick="viewClick"
+        android:text="camera 识别"
+        android:textSize="20dp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/computeButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@+id/toggleButton"
+            android:onClick="viewClick"
+            android:text="计算"
+            android:textSize="20dp" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/holo_red_dark"
+            android:textOff="@string/tflite"
+            android:textOn="@string/nnapi" />
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/dataListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"></ListView>
+
+</LinearLayout>

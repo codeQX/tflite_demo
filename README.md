@@ -1,0 +1,5 @@
+4导联12分类
+ecg_zx_0820.tflite
+fourleader_50_test_data.dat
+batch:50
+batchDataNum:1000
