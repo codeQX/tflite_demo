@@ -24,6 +24,7 @@ import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 
 import org.tensorflow.lite.Interpreter;
+import org.tensorflow.lite.gpu.GpuDelegate;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -104,13 +105,17 @@ public abstract class BaseClassifier {
     /**
      * Initializes an {@code ImageClassifier}.
      */
-    BaseClassifier(Activity activity, String modelFilePath, String dataFilePath, int batchSize, boolean nnApi) throws IOException {
+    BaseClassifier(Activity activity, String modelFilePath, String dataFilePath, int batchSize, boolean nnApi, boolean gpuDelegate) throws IOException {
         this.modelFilePath = modelFilePath;
         this.dataFilePath = dataFilePath;
         this.batchSize = batchSize;
 
         tfliteOptions = new Interpreter.Options();
         tfliteOptions.setUseNNAPI(nnApi);
+        if (gpuDelegate){
+            tfliteOptions.addDelegate(new GpuDelegate());
+        }
+
         tflite = new Interpreter(loadModelFile(activity), tfliteOptions);
         labelList = loadLabelList(activity);
         imgData = ByteBuffer.allocateDirect(

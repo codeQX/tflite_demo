@@ -36,8 +36,8 @@ public class BpClassifier extends BaseClassifier {
      *
      * @param activity
      */
-    BpClassifier(Activity activity, String modelFilePath, String dataFilePath, int batchSize, boolean nnApi) throws IOException {
-        super(activity,modelFilePath,dataFilePath,batchSize,nnApi);
+    BpClassifier(Activity activity, String modelFilePath, String dataFilePath, int batchSize, boolean nnApi, boolean gpuDelegate) throws IOException {
+        super(activity,modelFilePath,dataFilePath,batchSize,nnApi, gpuDelegate);
         //initLabelProbArray();
     }
 
@@ -64,6 +64,10 @@ public class BpClassifier extends BaseClassifier {
         return batchSize;
     }
 
+    /**
+     * 形状：1*2003
+     * @return
+     */
     @Override
     protected int getImageSizeX() {
         return 2003;

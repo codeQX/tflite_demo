@@ -36,8 +36,8 @@ public class HeartBeat4lead12classClassifier extends BaseClassifier {
      *
      * @param activity
      */
-    HeartBeat4lead12classClassifier(Activity activity,String modelFilePath,String dataFilePath,int batchSize,boolean nnApi) throws IOException {
-        super(activity,modelFilePath,dataFilePath,batchSize,nnApi);
+    HeartBeat4lead12classClassifier(Activity activity,String modelFilePath,String dataFilePath,int batchSize,boolean nnApi, boolean gpuDelegate) throws IOException {
+        super(activity,modelFilePath,dataFilePath,batchSize,nnApi,gpuDelegate);
         //initLabelProbArray();
     }
 
